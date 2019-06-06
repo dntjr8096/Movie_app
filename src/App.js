@@ -24,12 +24,15 @@ class App extends Component {
       .then(json => json.data.movies)
       .catch(err => console.log(err));
   };
+
   _renderMovie = () => {
-    const movies = this.state.movies.map((movie, index) => {
+    const movies = this.state.movies.map(movie => {
       return (
         <Movie
-          title={movie.title}
-          poster={movie.large_cover_image}
+          title={movie.title_english}
+          poster={movie.medium_cover_image}
+          synopsis={movie.synopsis}
+          genres={movie.genres}
           key={movie.id}
         />
       );
@@ -39,7 +42,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className={this.state.movies ? "App" : "App--loading"}>
         {this.state.movies ? this._renderMovie() : "Loading"}
       </div>
     );
