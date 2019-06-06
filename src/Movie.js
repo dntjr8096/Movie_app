@@ -31,7 +31,7 @@ function Movie({ title, poster, synopsis, genres }) {
 }
 
 function MoviePoster({ poster, alt }) {
-  return <img src={poster} alt={alt} title={alt} />;
+  return <img src={poster} alt={alt} title={alt} className="Movie__Poster" />;
 }
 
 function MovieGenre({ genre }) {
